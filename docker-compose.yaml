@@ -1,0 +1,16 @@
+version: "2.4"
+services:
+  spark_api:
+    build:
+      context: ./
+      dockerfile: Dockerfile-spark
+    ports:
+      - "${SPARK_PORT}:22124"
+    environment:
+      TZ: ${TZ}
+    command: uvicorn feast_fast_api:feast --host 0.0.0.0 --port 22124 --app-dir /app
+    restart: on-failure
+    tty: true
+    user: root
+    networks:
+      - default
