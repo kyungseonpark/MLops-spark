@@ -28,6 +28,7 @@ sdist/
 var/
 wheels/
 volumes/
+test/
 share/python-wheels/
 *.egg-info/
 .installed.cfg
